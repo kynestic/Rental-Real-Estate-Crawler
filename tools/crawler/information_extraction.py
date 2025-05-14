@@ -3,7 +3,7 @@ import json
 import pandas as pd
 
 # Khởi tạo client với API key
-client_auth = openai.OpenAI(api_key="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")
+client_auth = openai.OpenAI('')
 
 # Prompt đã cập nhật
 prompt = """
