@@ -65,6 +65,8 @@ class RedfinCrawler():
                 img.append(item['src'])
             for subsearch in card.find_all("script", {"type":"application/ld+json"}):
                 listinginfo = json.loads(subsearch.text)
+                if not isinstance(listinginfo, list):
+                    continue
                 url = listinginfo[0].get("url")
                 listingid = url.split("/")[-1]
                 if sub_path:
@@ -237,10 +239,16 @@ class RedfinCrawler():
         for filter_item in filter:
             # Lấy danh sách các id căn hộ thỏa mãn filter này
             allowed_ids = self.requestForData(filter_item)
-            
+            print(filter_item, allowed_ids)
             # Thêm trường thông tin cho mỗi item
             final_data = [
                 {**item, filter_item: item["listingid"] in allowed_ids}  # Thêm trường filter_item với True/False
                 for item in final_data
             ]
         return final_data
+
+# search = RedfinCrawler("90011")
+
+# json_data = json.dumps(search.getData(), ensure_ascii=False, indent=4)
+
+# print(json_data)

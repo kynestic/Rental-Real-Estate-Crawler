@@ -7,6 +7,7 @@ import re
 import time
 import numpy as np
 import random
+import json
 
 def update_user_agent_version():
     # Headers ban đầu
@@ -142,6 +143,7 @@ class ApartmentCrawler():
 
         #Get the HTML
         bs4ob = BeautifulSoup(response.text, 'lxml')
+
         element = bs4ob.select_one("#placardContainer > ul > li:nth-child(41) > p > span")
         page_count = None
         if element:
@@ -277,6 +279,11 @@ class ApartmentCrawler():
         
         return final_data
 
+# search = ApartmentCrawler("90011")
+
+# json_data = json.dumps(search.getData(), ensure_ascii=False, indent=4)
+
+# print(json_data)
         
 
 

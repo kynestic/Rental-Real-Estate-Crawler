@@ -10,7 +10,7 @@ import numpy as np
 def deep_throtling():
     time.sleep(np.random.randint(300, 600))
 # Hàm ghi log vào file
-def log_to_file(message, log_file=r'D:\CODING\DATN\data\logs\tmp.log'):
+def log_to_file(message, log_file=r'D:\CODING\Rental-Real-Estate-Crawler\data\logs\tmp.log'):
     with open(log_file, 'a', encoding='utf-8') as f:
         f.write(message + '\n')
 
@@ -28,18 +28,18 @@ def main_func():
             log_to_file(f'Error initializing crawlers: {e}')
 
         try:
-            log_to_file('get realtor data')
+            log_to_file('get apartment data')
             start_time = time.time()
-            with open('realtor.jsonl', 'a', encoding='utf-8') as f:
-                final_data = realtor.getData()
+            with open('apartment.jsonl', 'a', encoding='utf-8') as f:
+                final_data = apartment.getData()
                 for item in final_data:
                     item = str(item)
                     item = item.replace('\n','')
                     f.write(item+'\n')
             end_time = time.time()
-            log_to_file(f'Finished Realtor in {end_time - start_time:.2f} seconds')
+            log_to_file(f'Finished apartment in {end_time - start_time:.2f} seconds')
         except Exception as e:
-            log_to_file(f'Error Realtor: {e}')
+            log_to_file(f'Error apartment: {e}')
 
         continue
 

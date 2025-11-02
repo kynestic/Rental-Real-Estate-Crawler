@@ -438,8 +438,11 @@ def getImageLink(url):
      
     return img
 
+# search = RealtorCrawler("90011")
 
+# json_data = json.dumps(search.getData(), ensure_ascii=False, indent=4)
 
+# print(json_data)
 
 
     
