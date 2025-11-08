@@ -3,3 +3,9 @@ tmp/
 cache/
 tools\crawler\information_extraction.py
 __pycache__
+tools/crawler/batdongsanlink.txt
+tools/crawler/batdonsanlink.txt
+tools/crawler/data.html
+tools/crawler/fail_urls.txt
+tools/crawler/ok_urls.txt
+tools/crawler/output.csv
